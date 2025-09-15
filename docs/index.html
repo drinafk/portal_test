@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Dolores Online Document Request System</title>
+    <link rel="stylesheet" href="..//static/admin_dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* New CSS for calendar header and buttons */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .calendar-nav-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1a237e;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="nav-bar">
+        <div class="nav-icons">
+            <button class="nav-btn" id="home-btn"><span class="icon">&#x2302;</span></button>
+            <button class="nav-btn" id="back-btn"><span class="icon">&#x21E6;</span></button>
+            <button class="nav-btn" id="profile-btn"><span class="icon">&#x1F464;</span></button>
+        </div>
+    </aside>
+
+    <main class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <img src="..//static/images/dolores logo.png" alt="Barangay Logo" class="brgy-logo">
+                <h1 class="header-title">Barangay Dolores Online Document Request System</h1>
+            </div>
+        </header>
+        
+        <div class="main-grid">
+            <div class="left-panel">
+                <div class="card welcome-card">
+                    <img src="..//static/images/CERIBO, ADRIAN R..jpg" alt="User Profile Photo" class="brgy-logo-large">
+                    <h2 class="welcome-title">Welcome, ADRIAN!</h2>
+                </div>
+                
+                <div class="card calendar-card">
+                    <div class="calendar-header">
+                        <button id="prev-month-btn" class="calendar-nav-btn">&#x25C0;</button>
+                        <h3 class="calendar-title">Month Year</h3>
+                        <button id="next-month-btn" class="calendar-nav-btn">&#x25BA;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <span class="calendar-day day-label">SUN</span>
+                        <span class="calendar-day day-label">MON</span>
+                        <span class="calendar-day day-label">TUE</span>
+                        <span class="calendar-day day-label">WED</span>
+                        <span class="calendar-day day-label">THU</span>
+                        <span class="calendar-day day-label">FRI</span>
+                        <span class="calendar-day day-label">SAT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h2 class="right-panel-title">What would you like to do?</h2>
+                
+                <button class="action-card" id="request-btn">
+                    <img src="..//static/images/request.png" alt="Request Icon" class="action-icon">
+                    <span class="action-text">Check Requests</span>
+                </button>
+                
+                <button class="action-card" id="transaction-history-btn">
+                    <img src="..//static/images/transact.png" alt="Transaction History Icon" class="action-icon">
+                    <span class="action-text">View Transaction History</span>
+                </button>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            &copy; Company Name | Barangay Dolores Online Document Request System | Barangay Dolores, Santa Cruz, Marinduque
+        </footer>
+    </main>
+
+    <script src="..//static/admin_dashboard.js"></script>
+</body>
+</html>

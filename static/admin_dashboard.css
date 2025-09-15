@@ -1,0 +1,307 @@
+/* admin_dashboard.css */
+
+/* Basic Styles and Font */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e3f2fd; /* Light blue background */
+    display: flex;
+    /* Use 100vh to ensure the body takes the full viewport height */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #1a237e; /* Dark blue text color */
+    /* Hide any overflow that might cause scrolling */
+    overflow: hidden;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    z-index: 10;
+}
+.nav-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.nav-btn {
+    padding: 1rem;
+    border-radius: 9999px;
+    background-color: #bbdefb; /* Light blue button background */
+    color: #0d47a1; /* Darker blue icon color */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.nav-btn:hover {
+    background-color: #90caf9; /* Lighter blue on hover */
+}
+.nav-btn:first-child {
+    background-color: #64b5f6; /* A more prominent blue for the first button */
+}
+.nav-btn:first-child .icon {
+    color: #ffffff; /* White icon for the first button */
+}
+.icon {
+    font-size: 1.5rem;
+}
+
+/* Main Content Container */
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    /* Use flex-grow to make sure it fills the available space */
+    flex-grow: 1;
+    /* Allow internal scrolling if content exceeds space, but hide the body scrollbar */
+    overflow-y: auto;
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #1565c0, #2196f3); /* Blue gradient header */
+    color: #ffffff;
+    width: 97%;
+    border-radius: 1.5rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    /* Set a fixed height or max-height to control its size and prevent overlap */
+    max-height: 10vh;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.brgy-logo {
+    width: 5rem;
+    height: 5rem;
+    /* The border has been removed to maximize the logo size */
+}
+.header-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    /* Ensure the title does not wrap too aggressively */
+    white-space: nowrap;
+}
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 2.5rem;
+    }
+    .brgy-logo {
+        width: 7rem;
+        height: 7rem;
+    }
+}
+
+/* Main Grid Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    /* Use flex-grow to ensure the grid takes the remaining vertical space */
+    flex-grow: 1;
+    /* Use min-height: 0 to allow the grid items to shrink */
+    min-height: 0;
+}
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Card-like Containers */
+.card {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0; /* Add a subtle border */
+}
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Left Panel */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* Use flex-grow to allow the panel to fill the space */
+    flex-grow: 1;
+    min-height: 0;
+}
+.welcome-card {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Use flex-grow to make the welcome card fill available space */
+    flex-grow: 1;
+    min-height: 0;
+}
+.brgy-logo-large {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 9999px;
+    margin-top: 1rem;
+    border: 3px solid #100681;
+    /* The border has been removed to maximize the logo size */
+}
+.welcome-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d47a1; /* Dark blue welcome title */
+}
+@media (min-width: 768px) {
+    .welcome-title {
+        font-size: 2.25rem;
+    }
+    .brgy-logo-large {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+/* Calendar Section */
+.calendar-card {
+    padding: 1.5rem;
+    text-align: center;
+    /* Use flex-grow to make sure the calendar card fills the space */
+    flex-grow: 1;
+    min-height: 0;
+}
+.calendar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1565c0; /* Blue title color */
+    margin-bottom: 1rem;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    color: #424242; /* Grey text for formal look */
+    /* Add padding to prevent the calendar from being too small */
+    padding-bottom: 1rem;
+}
+.calendar-day {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+.day-label {
+    font-weight: 700;
+}
+.inactive {
+    color: #bdbdbd;
+}
+.active {
+    background-color: #e0e0e0;
+}
+.current {
+    background-color: #1565c0; /* Blue background for current day */
+    color: white;
+    font-weight: 700;
+}
+/* Add this to your existing CSS file */
+.calendar-day.holiday {
+    background-color: #ef9a9a; /* Light red background */
+    color: #b71c1c; /* Dark red text */
+    font-weight: 700;
+}
+
+/* Ensure the holiday styling doesn't conflict with the current day styling */
+.calendar-day.current.holiday {
+    background-color: #b71c1c; /* Dark red background for current day if it's a holiday */
+    color: white;
+}
+/* Right Panel */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgba(21, 101, 192, 0.9); /* Blue transparent background */
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    /* Use flex-grow to make the panel fill available space */
+    flex-grow: 1;
+    min-height: 0;
+}
+.right-panel-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .right-panel-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* Action Cards */
+.action-card {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+    color: #1a237e; /* Dark blue text color */
+    border: none;
+    cursor: pointer;
+    /* Use flex: 1 to make the action cards share the available space equally */
+    flex: 1;
+}
+.action-card:hover {
+    transform: translateY(-5px);
+}
+.action-icon {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1rem;
+}
+.action-text {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .action-card {
+        padding: 3rem;
+    }
+    .action-icon {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    color: #616161;
+    font-size: 0.875rem;
+    text-align: center;
+    width: 100%;
+}

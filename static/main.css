@@ -1,0 +1,270 @@
+/* admin_dashboard.css */
+/* Basic Styles and Font */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f5f9;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    /* Prevent scrolling on desktop and mobile */
+    overflow: hidden; 
+}
+
+/* Navigation Bar */
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    z-index: 10;
+}
+.nav-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.nav-btn {
+    padding: 1rem;
+    border-radius: 9999px;
+    background-color: #e2e8f0;
+    color: #4c1d95;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.nav-btn:hover {
+    background-color: #ede9fe;
+}
+.nav-btn:first-child {
+    background-color: #cbd5e1;
+}
+.nav-btn:first-child .icon {
+    color: #8b5cf6;
+}
+.icon {
+    font-size: 1.5rem;
+}
+
+/* Main Content Container */
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    box-sizing: border-box; /* Include padding in the height calculation */
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: #ffffff;
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.brgy-logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+}
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 1.875rem;
+    }
+    .brgy-logo {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+/* Main Grid Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    flex: 1; /* Allow the grid to grow and fill the available space */
+    overflow: hidden; /* Prevent scrolling within the grid */
+}
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Card-like Containers */
+.card {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Left Panel */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.welcome-card {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.brgy-logo-large {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+.welcome-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+@media (min-width: 768px) {
+    .welcome-title {
+        font-size: 2.25rem;
+    }
+    .brgy-logo-large {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+/* Calendar Section */
+.calendar-card {
+    padding: 1.5rem;
+    text-align: center;
+}
+.calendar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8b5cf6;
+    margin-bottom: 1rem;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    color: #4b5563;
+}
+.calendar-day {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+.day-label {
+    font-weight: 700;
+}
+.inactive {
+    color: #9ca3af;
+}
+.active {
+    background-color: #d1d5db;
+}
+.current {
+    background-color: #8b5cf6;
+    color: white;
+    font-weight: 700;
+}
+
+/* Right Panel */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgba(124, 58, 237, 0.9);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.right-panel-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .right-panel-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* Action Cards */
+.action-card {
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+    color: #1f2937;
+    border: none;
+    cursor: pointer;
+}
+.action-card:hover {
+    transform: translateY(-5px);
+}
+.action-icon {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1rem;
+}
+.action-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .action-card {
+        padding: 3rem;
+    }
+    .action-icon {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+}
+
+/* Footer */
+.footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Dolores Online Document Request System - Request</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* This is a combination of the provided CSS, with new styles for the request page. */
+
+        /* Basic Styles and Font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e3f2fd; /* Light blue background */
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #1a237e; /* Dark blue text color */
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.1);
+            border-top-right-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            z-index: 10;
+        }
+        .nav-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .nav-btn {
+            padding: 1rem;
+            border-radius: 9999px;
+            background-color: #bbdefb; /* Light blue button background */
+            color: #0d47a1; /* Darker blue icon color */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .nav-btn:hover {
+            background-color: #90caf9; /* Lighter blue on hover */
+        }
+        /* Active button style */
+        .nav-btn.active {
+            background-color: #64b5f6; /* A more prominent blue for the active button */
+        }
+        .nav-btn.active .icon {
+            color: #ffffff; /* White icon for the active button */
+        }
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        /* Main Content Container */
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1565c0, #2196f3); /* Blue gradient header */
+            color: #ffffff;
+            width: 97%;
+            border-radius: 1.5rem;
+            padding: 1rem 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            max-height: 10vh;
+            display: flex;
+            align-items: center;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .brgy-logo {
+            width: 5rem;
+            height: 5rem;
+        }
+        .header-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            white-space: nowrap;
+        }
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+            .brgy-logo {
+                width: 7rem;
+                height: 7rem;
+            }
+        }
+        
+        /* Request Page Specific Styles */
+        .request-panel {
+            flex-grow: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .request-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a237e;
+        }
+        
+        .document-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem; /* Increased gap for more space */
+            width: 100%;
+        }
+        @media (min-width: 640px) {
+            .document-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .document-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* NEW CSS TO CENTER THE TWO CARDS ON A SEPARATE LINE */
+        .document-grid-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .document-grid-top {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .document-grid-bottom {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .document-grid-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .document-grid-top {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .document-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem; /* Increased padding to make cards bigger */
+            text-align: center;
+            color: #1a237e;
+            border: none;
+            cursor: pointer;
+            height: auto; /* Changed from fixed height to auto for better responsiveness */
+            min-height: 250px; /* Set a minimum height to maintain size on smaller screens */
+        }
+        .document-card:hover {
+            transform: translateY(-5px);
+        }
+        .document-icon {
+            width: 150px; /* Increased icon size */
+            height: 150px;
+            margin-bottom: 1.5rem; /* Increased margin */
+        }
+        .document-text {
+            font-size: 1.5rem; /* Increased font size */
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            color: #616161;
+            font-size: 0.875rem;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 2rem; /* Add padding for better spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="nav-bar">
+        <div class="nav-icons">
+            <button class="nav-btn" id="home-btn"><span class="icon">&#x2302;</span></button>
+            <button class="nav-btn active" id="request-btn"><span class="icon">&#x21E6;</span></button>
+            <button class="nav-btn" id="profile-btn"><span class="icon">&#x1F464;</span></button>
+        </div>
+    </aside>
+
+    <main class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <img src="https://placehold.co/128x128/fff/000?text=Brgy+Logo" alt="Barangay Logo" class="brgy-logo">
+                <h1 class="header-title">Barangay Dolores Online Document Request System</h1>
+            </div>
+        </header>
+        
+        <div class="request-panel">
+            <h2 class="request-title">Select the type of Document you want to request?</h2>
+            
+            <div class="document-grid-container">
+                <div class="document-grid-top">
+                    <button class="document-card" id="job-seeker-btn">
+                        <svg class="document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1a237e" d="M384 96L288 32V0c-17.7 0-32 14.3-32 32s14.3 32 32 32v32H160V64c17.7 0 32-14.3 32-32s-14.3-32-32-32v32L64 96c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64zM64 128H384c0 17.7 14.3 32 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zM128 256c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32z"/></svg>
+                        <span class="document-text">First time Job Seeker Certificate</span>
+                    </button>
+                    
+                    <button class="document-card" id="solo-parent-btn">
+                        <svg class="document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1a237e" d="M384 96L288 32V0c-17.7 0-32 14.3-32 32s14.3 32 32 32v32H160V64c17.7 0 32-14.3 32-32s-14.3-32-32-32v32L64 96c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64zM64 128H384c0 17.7 14.3 32 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zM128 256c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32z"/></svg>
+                        <span class="document-text">Solo-Parent Certificate</span>
+                    </button>
+                    
+                    <button class="document-card" id="indigency-btn">
+                        <svg class="document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1a237e" d="M384 96L288 32V0c-17.7 0-32 14.3-32 32s14.3 32 32 32v32H160V64c17.7 0 32-14.3 32-32s-14.3-32-32-32v32L64 96c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64zM64 128H384c0 17.7 14.3 32 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zM128 256c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32z"/></svg>
+                        <span class="document-text">Indigency Certificate</span>
+                    </button>
+                </div>
+
+                <div class="document-grid-bottom">
+                    <button class="document-card" id="business-clearance-btn">
+                        <svg class="document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1a237e" d="M384 96L288 32V0c-17.7 0-32 14.3-32 32s14.3 32 32 32v32H160V64c17.7 0 32-14.3 32-32s-14.3-32-32-32v32L64 96c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64zM64 128H384c0 17.7 14.3 32 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zM128 256c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32z"/></svg>
+                        <span class="document-text">Barangay Business Clearance</span>
+                    </button>
+
+                    <button class="document-card" id="barangay-cert-btn">
+                        <svg class="document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1a237e" d="M384 96L288 32V0c-17.7 0-32 14.3-32 32s14.3 32 32 32v32H160V64c17.7 0 32-14.3 32-32s-14.3-32-32-32v32L64 96c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64zM64 128H384c0 17.7 14.3 32 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zM128 256c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32zm96 0c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V288c0-17.7-14.3-32-32-32z"/></svg>
+                        <span class="document-text">Barangay Certificate</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            &copy; Company Name | Barangay Dolores Online Document Request System | Barangay Dolores, Santa Cruz, Marinduque
+        </footer>
+    </main>
+
+    <script>
+        // This is a simplified version of the provided JS, tailored for the request page.
+        // It's all self-contained in this HTML file for easy previewing.
+
+        // Navigation button logic
+        document.getElementById('home-btn').addEventListener('click', () => {
+            console.log('Navigating to home dashboard...');
+            // In a real application, you would change the URL
+            // window.location.href = '../templates/admin_dashboard.html';
+        });
+
+        document.getElementById('request-btn').addEventListener('click', () => {
+            console.log('Navigating to request form...');
+            // This button is currently active on this page. No action needed.
+        });
+        
+        document.getElementById('profile-btn').addEventListener('click', () => {
+            console.log('Navigating to user profile...');
+            // window.location.href = '../templates/admin_profile.html';
+        });
+
+        // Document request card logic
+        // This demonstrates how to handle clicks on the new document cards.
+        function handleDocumentRequest(documentType) {
+            console.log(`User wants to request: ${documentType}`);
+            alert(`You are requesting a ${documentType}. A form would appear here.`);
+            // In a real application, you would navigate to a specific form for this document type
+            // window.location.href = `../templates/request_form.html?type=${documentType}`;
+        }
+
+        document.getElementById('job-seeker-btn').addEventListener('click', () => {
+            handleDocumentRequest('First time Job Seeker Certificate');
+        });
+
+        document.getElementById('solo-parent-btn').addEventListener('click', () => {
+            handleDocumentRequest('Solo-Parent Certificate');
+        });
+
+        document.getElementById('indigency-btn').addEventListener('click', () => {
+            handleDocumentRequest('Indigency Certificate');
+        });
+
+        document.getElementById('business-clearance-btn').addEventListener('click', () => {
+            handleDocumentRequest('Barangay Business Clearance');
+        });
+
+        document.getElementById('barangay-cert-btn').addEventListener('click', () => {
+            handleDocumentRequest('Barangay Certificate');
+        });
+    </script>
+</body>
+</html>

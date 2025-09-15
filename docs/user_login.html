@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Dolores - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..//static/user_login.css">
+</head>
+<body>
+
+    <div class="mobile-view">
+        <div class="header-section">
+            <img src="..//static/images/dolores logo.png" alt="Barangay Dolores Logo">
+            <h1>Barangay Dolores Online Document Request System</h1>
+            <p class="subtitle">Your gateway to official barangay services.</p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" id="login-tab">LOG IN</button>
+            <button class="tab-btn" id="signup-tab">SIGN UP</button>
+        </div>
+        
+        <div class="login-form-container active" id="login-form-container">
+            <form id="login-form">
+                <div class="input-group">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                    </span>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                
+                <div class="input-group">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                    </span>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Login Now</button>
+                
+            </form>
+        </div>
+
+        <div class="signup-form-container" id="signup-form-container">
+            <p class="subtitle">Please fill out the form to create an account.</p>
+            <form id="signup-form">
+                <div class="input-group">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                    </span>
+                    <input type="text" id="signup-username" name="signup-username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                    </span>
+                    <input type="password" id="signup-password" name="signup-password" placeholder="Password" required>
+                </div>
+                    <div class="input-group">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                    </span>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="signup-btn">Create Account</button>
+            </form>
+        </div>
+
+        <div id="message-box" class="message-box"></div>
+    </div>
+
+    <div class="desktop-message">
+        <h1>Mobile View Only</h1>
+        <p>This application is designed for mobile devices. Please view it on a phone or resize your browser to a width of 600px or less.</p>
+    </div>
+
+    <script src="..//static/user_login.js"></script>
+</body>
+</html>
